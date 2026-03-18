@@ -1,0 +1,62 @@
+ body {
+    margin: 50px;
+    padding: 0;
+ }
+ 
+ .ajusta-imagem {
+    width: 100%;
+    height: 30vh; /* ajuste para o “tamanho de corte” que você quer */
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.ajusta-imagem img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: bottom;
+}
+
+.circulo-imagem {
+    width: 75px; /* tamanho do círculo - ajuste conforme necessário */
+    height: 75px;
+    border-radius: 50%; /* faz o quadrado virar um círculo */
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.circulo-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    background-color: #fff;
+}
+
+.espacamento-superior {
+    margin-top: 20px;
+}
+
+.espacamento-direita {
+    margin-right: 20px;
+}
+
+.espacamento-esquerda {
+    margin-left: 20px;
+}
+
+.espacamento-inferior {
+    margin-bottom: 20px;
+}
+
+.grid-cardapio {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
