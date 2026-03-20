@@ -55,8 +55,17 @@
     margin-bottom: 20px;
 }
 
-.grid-cardapio {
+.grid {
     display: grid;
+}
+
+.grid-cardapio {
     grid-template-columns: 1fr 1fr;
     gap: 16px;
+}
+
+.linha-inteira {
+  display: flex; 
+  width: 100%;
+  margin-bottom: 16px; 
 }
