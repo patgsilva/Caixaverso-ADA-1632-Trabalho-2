@@ -1,154 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css"></link>
-    <link rel="stylesheet" href="css/novo-item.css"></link>
-    <link rel="stylesheet" href="css/botoes.css"></link>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/style.css"></link>
+	<link rel="stylesheet" href="css/fontes.css"></link>
+	<link rel="stylesheet" href="css/modal.css"></link>
+	<link rel="stylesheet" href="css/botoes.css"></link>
+	<link rel="stylesheet" href="css/form.css"></link>
+	<!-- Fontes Google -->
+	 <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+	<!-- Material Icons -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 </head>
 <body>
-    <div class="ajusta-imagem">
-        <img src="img/capa.jpg" alt="Homem cozinhando">
-    </div>
-    <div class="conteudo card espacamento-superior" style="display: flex; justify-content: space-between;">
-        <div class="logo-e-nome" style="display: flex;">
-            <div class="circulo-imagem espacamento-direita">
-                <img src="img/logo.jpg" alt="Logotipo restaurante">
-            </div>
-            <h1>Sistema de Gestão de Restaurante</h1>
-        </div>
-        <div class="botoes espacamento-direita" style="display: flex; align-items: center;">
-            <button class="btn btn-novo-item-cardapio espacamento-direita" id="abrirNovoItem">Novo item</button>
-            <button class="btn btn-novo-pedido espacamento-direita" id="abrirNovoPedido">Novo pedido</button>
-            <button class="btn btn-relatorio-vendas" id="abrirRelatorio">Vendas do dia</button>
-        </div>
-    </div>
-    <div class="cardapio espacamento-superior espacamento-esquerda">
-        <h1>Bebidas</h1>
-    </div>
-    <div class="grid grid-cardapio">
-        <div class="card card1">
-            <h2>Prato 1</h2>
-            <p>Descrição do prato 1.</p>
-        </div>
-        <div class="card card2">
-            <h2>Prato 2</h2>
-            <p>Descrição do prato 2.</p>
-        </div>
-        <div class="card card3">
-            <h2>Prato 3</h2>
-            <p>Descrição do prato 3.</p>
-        </div>
-        <div class="card card4">
-            <h2>Prato 4</h2>
-            <p>Descrição do prato 4.</p>
-        </div>
-    </div>
-    <div class="cardapio espacamento-superior espacamento-esquerda">
-        <h1>Lanches</h1>
-    </div>
-    <div class="grid grid-cardapio">
-        <div class="card card1">
-            <h2>Prato 1</h2>
-            <p>Descrição do prato 1.</p>
-        </div>
-        <div class="card card2">
-            <h2>Prato 2</h2>
-            <p>Descrição do prato 2.</p>
-        </div>
-        <div class="card card3">
-            <h2>Prato 3</h2>
-            <p>Descrição do prato 3.</p>
-        </div>
-        <div class="card card4">
-            <h2>Prato 4</h2>
-            <p>Descrição do prato 4.</p>
-        </div>
-    </div>
+	<div class="ajusta-imagem">
+		<img src="img/capa.jpg" alt="Homem cozinhando">
+	</div>
+	<div class="conteudo card espacamento-superior" style="display: flex; justify-content: space-between;">
+		<div class="logo-e-nome" style="display: flex;">
+			<div class="circulo-imagem espacamento-direita">
+				<img src="img/logo.jpg" alt="Logotipo restaurante">
+			</div>
+			<h1 class="montserrat-titulo">Sistema de Gestão de Restaurante</h1>
+		</div>
+		<div class="botoes espacamento-direita" style="display: flex; align-items: center;">
+			<button class="btn btn-novo-item-cardapio espacamento-direita" id="abrirNovoItem">Novo item</button>
+			<button class="btn btn-novo-pedido espacamento-direita" id="abrirNovoPedido">Novo pedido</button>
+			<button class="btn btn-relatorio-vendas" id="abrirRelatorio">Vendas do dia</button>
+		</div>
+	</div>
+	<div class="cardapio espacamento-superior espacamento-esquerda">
+		<h1 class="montserrat-titulo">Bebidas</h1>
+	</div>
+	<div class="grid grid-cardapio bebidas">
+	</div>
+	<div class="cardapio espacamento-superior espacamento-esquerda">
+		<h1 class="montserrat-titulo">Lanches</h1>
+	</div>
+	<div class="grid grid-cardapio lanches">
+	</div>
 
-    <dialog id="novoItemModal">
-    <!-- Cabeçalho -->
-    <div class="modal-header">
-        <h2>Inclusão de novo item no cardápio</h2>
-        <button class="btn-x" id="fecharNovoItem">&#x2715;</button>
-    </div>
+	<dialog id="novoItemModal">
+        <!-- Cabeçalho -->
+        <div class="modal-header">
+            <h2 class="montserrat-titulo">Inclusão de novo item no cardápio</h2>
+            <button class="btn-x" id="fecharNovoItem">&#x2715;</button>
+        </div>
 
-    <!-- Corpo -->
-    <div class="modal-body">
-        <form action="">
-            <div class="grid grid-form-linha1">
-                <div class="item">
-                    <label for="fname">Nome do prato:</label><br>
-                    <input class="linha-inteira" type="text" id="fname" name="fname" required><br>
+        <!-- Corpo -->
+        <div class="modal-body">
+            <form id="novoItemCardapio" action="">
+                <div class="grid linha-inteira form-group-custom">
+                    <div class="item form-group-custom">
+                        <label for="nomePrato">Nome do prato:</label><br>
+                        <input class="form-control-custom" type="text" id="nomePrato" name="nomePrato" required><br>
+                    </div>
+                    <div class="item form-group-custom">
+                        <label for="valorPrato">Valor:</label><br>
+                        <input class="form-control-custom" type="number" id="valorPrato" name="valorPrato" step="0.01" min="0" required><br>
+                    </div>
+                    <div class="item form-group-custom">
+                        <label for="categoriaPrato">Categoria:</label><br>
+                        <select class="form-control-custom" id="categoriaPrato" name="categoriaPrato" required>
+                            <option value="" disabled selected>Selecione</option>
+                            <option value="bebidas">Bebidas</option>
+                            <option value="lanches">Lanches</option>
+                        </select>
+                    </div> 
                 </div>
-                <div class="item">
-                    <label for="fname">Valor:</label><br>
-                <input class="linha-inteira" type="number" id="fname" name="fname" step="0.01" min="0" required><br>
+                <div class="item form-group-custom">
+                    <label for="descricaoPrato">Descrição:</label><br>
+                    <input class="form-control-custom" type="text" id="descricaoPrato" name="descricaoPrato" required><br>        
                 </div>
-            </div>
-            <label for="lname">Descrição:</label><br>
-            <input class="linha-inteira" type="text" id="lname" name="lname" required><br>
-            <label for="lname">Imagem:</label><br>
-            <input class="linha-inteira" type="text" id="lname" name="lname" required>
-        </form>
-    </div>
+                <div class="item form-group-custom">
+                    <label for="imagemPrato">Imagem:</label><br>
+                    <input class="form-control-custom" type="text" id="imagemPrato" name="imagemPrato" required>
+                </div>           
+            </form>
+        </div>
 
-    <!-- Rodapé -->
-    <div class="modal-footer">
-        <button class="btn-cancelar" id="fecharModalItem">Cancelar</button>
-        <button class="btn-confirmar">Confirmar</button>
-    </div>
-    </dialog>
+        <!-- Rodapé -->
+        <div class="modal-footer">
+            <button class="btn-cancelar" id="fecharModalItem">Cancelar</button>
+            <button class="btn-confirmar" id="salvar-novo-item" type="submit" form="novoItemCardapio">Confirmar</button>
+        </div>
+	</dialog>
 
-    
-    <dialog id="novoPedidoModal">
-    <!-- Cabeçalho -->
-    <div class="modal-header">
-        <h2>Novo pedido</h2>
-        <button class="btn-x" id="fecharNovoPedido">&#x2715;</button>
-    </div>
+	
+	<dialog id="novoPedidoModal">
+        <!-- Cabeçalho -->
+        <div class="modal-header">
+            <h2 class="montserrat-titulo">Novo pedido</h2>
+            <button class="btn-x" id="fecharNovoPedido">&#x2715;</button>
+        </div>
 
-    <!-- Corpo -->
-    <div class="modal-body">
-        <form action="">
-            Texto do formulário de novo pedido aqui.
-        </form>
-    </div>
+        <!-- Corpo -->
+        <div class="modal-body">
+            <form action="">
+                Texto do formulário de novo pedido aqui.
+            </form>
+        </div>
 
-    <!-- Rodapé -->
-    <div class="modal-footer">
-        <button class="btn-cancelar" id="cancelarNovoPedido">Cancelar</button>
-        <button class="btn-confirmar">Confirmar</button>
-    </div>
-    </dialog>
-
-
-    <dialog id="listaVendasModal">
-    <!-- Cabeçalho -->
-    <div class="modal-header">
-        <h2>Vendas do dia</h2>
-        <button class="btn-x" id="fecharVendas">&#x2715;</button>
-    </div>
-
-    <!-- Corpo -->
-    <div class="modal-body">
-        <form action="">
-            Texto de exemplo para a lista de vendas do dia.
-        </form>
-    </div>
-
-    <!-- Rodapé -->
-    <div class="modal-footer">
-        <button class="btn-cancelar" id="cancelarVendas">Cancelar</button>
-        <button class="btn-confirmar">Confirmar</button>
-    </div>
-    </dialog>
+        <!-- Rodapé -->
+        <div class="modal-footer">
+            <button class="btn-cancelar" id="cancelarNovoPedido">Cancelar</button>
+            <button class="btn-confirmar">Confirmar</button>
+        </div>
+	</dialog>
 
 
-    <script src="js/novo-item.js"></script>
-    <script src="js/novo-pedido.js"></script>
-    <script src="js/vendas.js"></script>
+	<dialog id="listaVendasModal">
+        <!-- Cabeçalho -->
+        <div class="modal-header">
+            <h2 class="montserrat-titulo">Vendas do dia</h2>
+            <button class="btn-x" id="fecharVendas">&#x2715;</button>
+        </div>
+
+        <!-- Corpo -->
+        <div class="modal-body">
+            <form action="">
+                Texto de exemplo para a lista de vendas do dia.
+            </form>
+        </div>
+
+        <!-- Rodapé -->
+        <div class="modal-footer">
+            <button class="btn-cancelar" id="cancelarVendas">Cancelar</button>
+            <button class="btn-confirmar">Confirmar</button>
+        </div>
+	</dialog>
+
+	<script src="js/novo-item.js"></script>
+    <script src="js/novo-item-salvar.js"></script>
+	<script src="js/novo-pedido.js"></script>
+	<script src="js/vendas.js"></script>
+    <script src="js/abrir-pagina.js"></script>
 </body>
 </html>
