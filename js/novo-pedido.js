@@ -4,8 +4,8 @@ const btnAbrirPedido = document.querySelector("#abrirNovoPedido");
 function fechar() {
 modalPedido.classList.add("fechar");
 modalPedido.addEventListener("animationend", () => {
-    modalPedido.close();
-    modalPedido.classList.remove("fechar");
+	modalPedido.close();
+	modalPedido.classList.remove("fechar");
 }, { once: true });
 }
 

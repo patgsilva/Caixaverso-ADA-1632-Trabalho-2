@@ -1,71 +1,160 @@
- body {
-    margin: 50px;
-    padding: 0;
- }
- 
- .ajusta-imagem {
-    width: 100%;
-    height: 30vh; /* ajuste para o “tamanho de corte” que você quer */
-    overflow: hidden;
-    border-radius: 8px;
+body {
+	margin: 50px;
+	padding: 0;
+}
+
+/* imagem de capa */
+.ajusta-imagem {
+	width: 100%;
+	height: 30vh;
+	/* ajuste para o “tamanho de corte” que você quer */
+	overflow: hidden;
+	border-radius: 8px;
 }
 
 .ajusta-imagem img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    object-position: bottom;
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+	object-position: bottom;
 }
 
 .circulo-imagem {
-    width: 75px; /* tamanho do círculo - ajuste conforme necessário */
-    height: 75px;
-    border-radius: 50%; /* faz o quadrado virar um círculo */
-    overflow: hidden;
-    object-fit: cover;
+	width: 75px;
+	/* tamanho do círculo - ajuste conforme necessário */
+	height: 75px;
+	border-radius: 50%;
+	/* faz o quadrado virar um círculo */
+	overflow: hidden;
+	object-fit: cover;
 }
 
 .circulo-imagem img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
 }
 
 .card {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 16px;
-    background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	padding: 16px;
+	background-color: #fff;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-cardapio {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 16px;
+}
+
+.cardapio-imagem {
+	height: 130px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	border-radius: 8px;
+}
+
+.cardapio-imagem img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	/* or 'contain', see options below */
+}
+
+.cardapio-texto {
+	margin-left: 10px;
+	margin-right: auto;
+}
+
+.cardapio-acoes {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
 }
 
 .espacamento-superior {
-    margin-top: 20px;
+	margin-top: 20px;
 }
 
 .espacamento-direita {
-    margin-right: 20px;
+	margin-right: 20px;
 }
 
 .espacamento-esquerda {
-    margin-left: 20px;
+	margin-left: 20px;
 }
 
 .espacamento-inferior {
-    margin-bottom: 20px;
+	margin-bottom: 20px;
 }
 
 .grid {
-    display: grid;
+	display: grid;
 }
 
 .grid-cardapio {
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
+	grid-template-columns: 1fr 1fr;
+	gap: 16px;
 }
 
-.linha-inteira {
-  display: flex; 
-  width: 100%;
-  margin-bottom: 16px; 
+.grid.linha-inteira {
+	display: grid;
+	grid-template-columns: 2fr 1fr 1fr;
+	gap: 1rem;
+	/* espaçamento horizontal entre elementos */
+	align-items: start;
+	/* alinha todos os itens pelo topo */
+}
+
+.grid.linha-inteira .item {
+	margin: 0;
+	/* se houver margin extra */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	/* centraliza verticalmente label+campo em cada item */
+}
+
+.grid.linha-inteira .form-control-custom,
+.grid.linha-inteira select.form-control-custom {
+	min-height: 2.25rem;
+}
+
+/* imagem do modal de detalhes */
+.imagem-detalhe {
+	max-height: 120px;
+	/* Limita a altura máxima */
+	max-width: 300px;
+	/* Limita a altura máxima */
+	width: auto;
+	overflow: hidden;
+	/* Esconde partes que ultrapassem */
+	display: flex;
+	/* Centraliza a imagem */
+	justify-content: space-between;
+}
+
+.imagem-detalhe img {
+	width: auto;
+	/* Usa largura natural até o max */
+	max-width: 100%;
+	/* Limita à largura do container */
+	height: auto;
+	/* Mantém proporção */
+	max-height: 100%;
+	/* Limita à altura do container */
+	object-fit: contain;
+	/* Mantém proporções sem cortar */
+	object-position: center;
+	display: block;
+}
+
+.label {
+	font-weight: bold;
 }

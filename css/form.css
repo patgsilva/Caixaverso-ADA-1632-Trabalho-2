@@ -1,0 +1,50 @@
+/* Container for spacing and layout */
+.form-group-custom {
+  margin-bottom: 1rem; /* Adds spacing between form groups */
+}
+
+/* Core Bootstrap input styling */
+.form-control-custom {
+  display: block; /* Makes the input a block-level element, taking full width */
+  width: 100%; /* Ensures it fills its container */
+  padding: .375rem .75rem; /* Standard Bootstrap padding */
+  font-size: 1rem; /* Base font size */
+  line-height: 1.5; /* Base line height */
+  color: #212529; /* Text color */
+  background-color: #fff; /* White background */
+  background-clip: padding-box;
+  border: 1px solid #ced4da; /* Light gray border */
+  border-radius: .25rem; /* Slightly rounded corners */
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out; /* Smooth transitions for focus states */
+  box-sizing: border-box; /* Ensures padding/border are included in the width calculation */
+}
+
+/* Focus state styling (the blue glow) */
+.form-control-custom:focus {
+  color: #212529;
+  background-color: #fff;
+  border-color: #86b7fe; /* Lighter blue border on focus */
+  outline: 0; /* Removes default browser outline */
+  box-shadow: 0 0 0 .25rem rgba(13, 110, 253, .25); /* Blue glow effect */
+}
+
+/* Placeholder text styling */
+.form-control-custom::placeholder {
+  color: #6c757d; /* Muted color for placeholder */
+  opacity: 1; /* Ensures visibility across browsers */
+}
+
+/* Disabled state styling */
+.form-control-custom:disabled,
+.form-control-custom[readonly] {
+  background-color: #e9ecef; /* Lighter background for disabled/readonly inputs */
+  opacity: 1;
+}
+
+/* Equal height for text inputs and selects in form rows */
+.grid.linha-inteira .form-control-custom,
+.grid.linha-inteira select.form-control-custom {
+  height: 2.25rem;
+  min-height: 2.25rem;
+  box-sizing: border-box;
+}
