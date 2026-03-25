@@ -16,6 +16,26 @@ dialog[open] {
   transform: translate(-50%, -50%);
   margin: 0;
 }
+
+dialog#excluirItemModal {
+  border: none;
+  border-radius: 8px;
+  padding: 0;
+  width: 600px;
+  animation: slideDown 0.3s ease;
+  overflow: hidden;
+}
+dialog#excluirItemModal::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+dialog#excluirItemModal[open] {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+}
+
 @keyframes slideDown {
   from {
 	opacity: 0;
@@ -29,6 +49,9 @@ dialog[open] {
 dialog.fechar {
   animation: slideUp 0.3s ease forwards;
 }
+dialog#excluirItemModal.fechar {
+  animation: slideUp 0.3s ease forwards;
+}
 @keyframes slideUp {
   to {
 	opacity: 0;
@@ -38,7 +61,6 @@ dialog.fechar {
 
 /* Cabeçalho */
 .modal-header {
-  background-color: #ff0000;
   color: white;
   padding: 14px 20px;
   display: flex;
@@ -56,6 +78,18 @@ dialog.fechar {
 
 #listaVendasModal .modal-header {
   background-color: #2e2e2e;
+}
+
+#exibirDetalhesItemModal .modal-header {
+  background-color: #0d6efd;
+}
+
+#editarItemModal .modal-header {
+  background-color: #4a7c3f;
+}
+
+#excluirItemModal .modal-header {
+  background-color: #ff0000;
 }
 
 .modal-header h2 {
@@ -120,7 +154,42 @@ dialog.fechar {
   color: white;
 }
 
+#novoPedidoModal .btn-confirmar:hover {
+  background-color: #3a5f2f;
+}
+
 #listaVendasModal .btn-confirmar {
   background-color: #2e2e2e;
   color: white;
+}
+
+#listaVendasModal .btn-confirmar:hover {
+  background-color: #1a1a1a;
+}
+
+#exibirDetalhesItemModal .btn-confirmar {
+  background-color: #0d6efd;
+  color: white;
+}
+
+#exibirDetalhesItemModal .btn-confirmar:hover {
+  background-color: #0b5ed7;
+}
+
+#editarItemModal .btn-confirmar {
+  background-color: #4a7c3f;
+  color: white;
+}
+
+#editarItemModal .btn-confirmar:hover {
+  background-color: #3a5f2f;
+}
+
+#excluirItemModal .btn-confirmar {
+  background-color: #ff0000;
+  color: white;
+}
+
+#excluirItemModal .btn-confirmar:hover {
+  background-color: #cc0000;
 }

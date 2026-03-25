@@ -35,9 +35,14 @@
 		</div>
 	</div>
 	<div class="cardapio espacamento-superior espacamento-esquerda">
-		<h1 class="montserrat-titulo">Bebidas</h1>
+		<h1 class="montserrat-titulo">Bebidas Alcoólicas</h1>
 	</div>
-	<div class="grid grid-cardapio bebidas">
+	<div class="grid grid-cardapio bebidas-alcoolicas">
+	</div>
+    <div class="cardapio espacamento-superior espacamento-esquerda">
+		<h1 class="montserrat-titulo">Bebidas Não Alcoólicas</h1>
+	</div>
+	<div class="grid grid-cardapio bebidas-nao-alcoolicas">
 	</div>
 	<div class="cardapio espacamento-superior espacamento-esquerda">
 		<h1 class="montserrat-titulo">Lanches</h1>
@@ -68,7 +73,8 @@
                         <label for="categoriaPrato">Categoria:</label><br>
                         <select class="form-control-custom" id="categoriaPrato" name="categoriaPrato" required>
                             <option value="" disabled selected>Selecione</option>
-                            <option value="bebidas">Bebidas</option>
+                            <option value="bebidas-alcoolicas">Bebidas Alcoólicas</option>
+                            <option value="bebidas-nao-alcoolicas">Bebidas Não Alcoólicas</option>
                             <option value="lanches">Lanches</option>
                         </select>
                     </div> 
@@ -135,10 +141,127 @@
         </div>
 	</dialog>
 
-	<script src="js/novo-item.js"></script>
-    <script src="js/novo-item-salvar.js"></script>
-	<script src="js/novo-pedido.js"></script>
-	<script src="js/vendas.js"></script>
-    <script src="js/abrir-pagina.js"></script>
+
+    <dialog id="exibirDetalhesItemModal">
+        <!-- Cabeçalho -->
+        <div class="modal-header">
+            <h2 class="montserrat-titulo">Detalhes do item</h2>
+            <button class="btn-x" id="fecharDetalhesItem">&#x2715;</button>
+        </div>
+
+        <!-- Corpo -->
+        <div class="modal-body">
+            <div class="grid linha-inteira">
+                <div class="detalhe-prato nomePrato">
+                    <p class="label">Nome:</p>
+                    <p id="detalhesNome"></p>
+                </div>
+                <div class="detalhe-prato valorPrato">
+                    <p class="label">Valor:</p>
+                    <p id="detalhesValor"></p>
+                </div>
+                <div class="detalhe-prato categoriaPrato">
+                    <p class="label">Categoria:</p>
+                    <p id="detalhesCategoria"></p>
+                </div>
+            </div>
+            <div class="detalhe-prato descricaoPrato">
+                <p class="label">Descrição:</p>
+                <p id="detalhesDescricao"></p>
+            </div>
+            <div class="detalhe-prato imagemPrato imagem-detalhe">
+                <p class="label">Imagem:</p>
+                <img id="detalhesImagem" src="" alt="Imagem do item">
+            </div>
+        </div>
+
+        <!-- Rodapé -->
+        <div class="modal-footer">
+            <button class="btn-cancelar" id="cancelarDetalhesItem">Fechar</button>
+        </div>
+	</dialog>
+
+
+    <dialog id="editarItemModal">
+        <!-- Cabeçalho -->
+        <div class="modal-header">
+            <h2 class="montserrat-titulo">Edição do item</h2>
+            <button class="btn-x" id="fecharEditarItemModal">&#x2715;</button>
+        </div>
+
+        <!-- Corpo -->
+        <div class="modal-body">
+            <form id="editarItemCardapio" action="">
+                <div type="hidden" id="idItemEditar" value=""></div>
+                <div class="grid linha-inteira form-group-custom">
+                    <div class="item form-group-custom">
+                        <label for="nomePrato">Nome do prato:</label><br>
+                        <input class="form-control-custom" type="text" id="editarNomePrato" name="nomePrato" required><br>
+                    </div>
+                    <div class="item form-group-custom">
+                        <label for="valorPrato">Valor:</label><br>
+                        <input class="form-control-custom" type="number" id="editarValorPrato" name="valorPrato" step="0.01" min="0" required><br>
+                    </div>
+                    <div class="item form-group-custom">
+                        <label for="categoriaPrato">Categoria:</label><br>
+                        <select class="form-control-custom" id="editarCategoriaPrato" name="categoriaPrato" required>
+                            <option value="" disabled selected>Selecione</option>
+                            <option value="bebidas-alcoolicas">Bebidas Alcoólicas</option>
+                            <option value="bebidas-nao-alcoolicas">Bebidas Não Alcoólicas</option>
+                            <option value="lanches">Lanches</option>
+                        </select>
+                    </div> 
+                </div>
+                <div class="item form-group-custom">
+                    <label for="descricaoPrato">Descrição:</label><br>
+                    <input class="form-control-custom" type="text" id="editarDescricaoPrato" name="descricaoPrato" required><br>        
+                </div>
+                <div class="item form-group-custom">
+                    <label for="imagemPrato">Imagem:</label><br>
+                    <input class="form-control-custom" type="text" id="editarImagemPrato" name="imagemPrato" required>
+                </div>           
+            </form>
+        </div>
+
+        <!-- Rodapé -->
+        <div class="modal-footer">
+            <button class="btn-cancelar" id="cancelarEditarItemModal">Cancelar</button>
+            <button class="btn-confirmar" id="salvar-editar-item">Confirmar</button>
+        </div>
+	</dialog>
+
+
+    <dialog id="excluirItemModal">
+        <!-- Cabeçalho -->
+        <input type="hidden" id="idItemExcluir" value="">
+        <div class="modal-header">
+            <h2 class="montserrat-titulo">Exclusão do item</h2>
+            <button class="btn-x" id="fecharExcluirItemModal">&#x2715;</button>
+        </div>
+
+        <!-- Corpo -->
+        <div class="modal-body">
+            <div class="item-a-excluir">
+
+            </div>
+        </div>
+
+        <!-- Rodapé -->
+        <div class="modal-footer">
+            <button class="btn-cancelar" id="cancelarExcluirItemModal">Cancelar</button>
+            <button class="btn-confirmar" id="confirmarExcluirItemModal">Confirmar</button>
+        </div>
+	</dialog>
+
+    <script type="module" src="js/abrir-pagina.js"></script>
+	<script type="module" src="js/novo-item.js"></script>
+    <script type="module" src="js/novo-item-salvar.js"></script>
+	<script type="module" src="js/novo-pedido.js"></script>
+	<script type="module" src="js/vendas.js"></script>
+    <script type="module" src="js/detalhes-item.js"></script>
+    <script type="module" src="js/editar-item.js"></script>
+    <script type="module" src="js/editar-item-confirmar.js"></script>
+    <script type="module" src="js/excluir-item.js"></script>
+    <script type="module" src="js/excluir-item-confirmar.js"></script>
 </body>
 </html>
