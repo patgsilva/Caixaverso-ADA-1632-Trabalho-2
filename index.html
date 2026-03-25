@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<link lang="en">
+<link>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
@@ -9,8 +9,10 @@
 	<link rel="stylesheet" href="css/modal.css"></link>
 	<link rel="stylesheet" href="css/botoes.css"></link>
 	<link rel="stylesheet" href="css/form.css"></link>
+    <link rel="stylesheet" href="css/pedido.css"></link>
+    <link rel="stylesheet" href="css/vendas.css"></link>
 	<!-- Fontes Google -->
-	 <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 	<!-- Material Icons -->
@@ -107,17 +109,61 @@
 
         <!-- Corpo -->
         <div class="modal-body">
-            <form action="">
-                Texto do formulário de novo pedido aqui.
-            </form>
+
+            <!-- Linha de seleção de item -->
+            <div class="grid linha-inteira form-group-custom pedido-selecao">
+                <div class="item form-group-custom">
+                    <label for="itemPedido">Item:</label><br>
+                    <select class="form-control-custom" id="itemPedido">
+                        <option value="" disabled selected>Selecione um item</option>
+                    </select>
+                </div>
+                <div class="item form-group-custom pedido-quantidade">
+                    <label for="quantidadePedido">Qtd:</label><br>
+                    <input class="form-control-custom" type="number" id="quantidadePedido" min="1" value="1">
+                </div>
+                <div class="item form-group-custom pedido-btn-adicionar">
+                    <label>&nbsp;</label><br>
+                    <button class="btn-adicionar-item-pedido" id="adicionarItemPedido">+ Adicionar</button>
+                </div>
+            </div>
+
+            <!-- Tabela de itens adicionados -->
+            <div class="pedido-lista-container">
+                <table class="pedido-tabela" id="tabelaPedido">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Qtd</th>
+                            <th>Valor unit.</th>
+                            <th>Subtotal</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelaPedidoBody">
+                        <tr id="pedido-vazio">
+                            <td colspan="5" class="pedido-vazio-msg">Nenhum item adicionado.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Total -->
+            <div class="pedido-total">
+                <span class="pedido-total-label">Total:</span>
+                <span class="pedido-total-valor" id="pedidoTotal">R$ 0,00</span>
+            </div>
+
         </div>
 
         <!-- Rodapé -->
         <div class="modal-footer">
             <button class="btn-cancelar" id="cancelarNovoPedido">Cancelar</button>
-            <button class="btn-confirmar">Confirmar</button>
+            <button class="btn-limpar-pedido" id="limparPedido">Limpar</button>
+            <button class="btn-confirmar" id="confirmarNovoPedido">Confirmar</button>
         </div>
-	</dialog>
+    </dialog>
+
 
 
 	<dialog id="listaVendasModal">
@@ -128,18 +174,81 @@
         </div>
 
         <!-- Corpo -->
-        <div class="modal-body">
-            <form action="">
-                Texto de exemplo para a lista de vendas do dia.
-            </form>
+        <div class="modal-body vendas-body">
+
+            <!-- Resumo geral -->
+            <div class="vendas-resumo">
+                <div class="vendas-resumo-card">
+                    <span class="vendas-resumo-label">Total arrecadado</span>
+                    <span class="vendas-resumo-valor" id="vendasTotal">R$ 0,00</span>
+                </div>
+                <div class="vendas-resumo-card">
+                    <span class="vendas-resumo-label">Pedidos realizados</span>
+                    <span class="vendas-resumo-valor" id="vendasQtdPedidos">0</span>
+                </div>
+                <div class="vendas-resumo-card">
+                    <span class="vendas-resumo-label">Ticket médio</span>
+                    <span class="vendas-resumo-valor" id="vendasTicketMedio">R$ 0,00</span>
+                </div>
+            </div>
+
+            <!-- Vendas por categoria e ranking lado a lado -->
+            <div class="vendas-grid-secundario">
+
+                <!-- Vendas por categoria -->
+                <div class="vendas-secao">
+                    <h3 class="vendas-secao-titulo">Vendas por categoria</h3>
+                    <table class="vendas-tabela" id="tabelaCategorias">
+                        <thead>
+                            <tr>
+                                <th>Categoria</th>
+                                <th>Itens vendidos</th>
+                                <th>Total</th>
+                                <th>%</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabelaCategoriasBody">
+                            <tr><td colspan="4" class="vendas-vazio-msg">Nenhum pedido registrado.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Ranking de itens -->
+                <div class="vendas-secao">
+                    <h3 class="vendas-secao-titulo">Itens mais vendidos</h3>
+                    <table class="vendas-tabela" id="tabelaRanking">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Item</th>
+                                <th>Qtd</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabelaRankingBody">
+                            <tr><td colspan="4" class="vendas-vazio-msg">Nenhum pedido registrado.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+            <!-- Lista detalhada de pedidos -->
+            <div class="vendas-secao">
+                <h3 class="vendas-secao-titulo">Pedidos do dia</h3>
+                <div id="vendasListaPedidos" class="vendas-lista-pedidos">
+                    <p class="vendas-vazio-msg">Nenhum pedido registrado.</p>
+                </div>
+            </div>
+
         </div>
 
         <!-- Rodapé -->
         <div class="modal-footer">
-            <button class="btn-cancelar" id="cancelarVendas">Cancelar</button>
-            <button class="btn-confirmar">Confirmar</button>
+            <button class="btn-cancelar" id="cancelarVendas">Fechar</button>
+            <button class="btn-limpar-vendas" id="limparVendas">Limpar vendas</button>
         </div>
-	</dialog>
+    </dialog>
 
 
     <dialog id="exibirDetalhesItemModal">
@@ -263,5 +372,6 @@
     <script type="module" src="js/editar-item-confirmar.js"></script>
     <script type="module" src="js/excluir-item.js"></script>
     <script type="module" src="js/excluir-item-confirmar.js"></script>
+    <script type="module" src="js/novo-pedido.js"></script>
 </body>
 </html>

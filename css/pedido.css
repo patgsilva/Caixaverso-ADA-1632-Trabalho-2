@@ -1,0 +1,128 @@
+/* Grid da linha de seleção: item ocupa mais espaço, qtd e botão menores */
+.pedido-selecao {
+    grid-template-columns: 3fr 1fr 1fr !important;
+    align-items: end;
+}
+ 
+.pedido-quantidade input {
+    text-align: center;
+}
+ 
+.pedido-btn-adicionar label {
+    display: block;
+}
+ 
+.btn-adicionar-item-pedido {
+    width: 100%;
+    padding: 6px 12px;
+    background-color: #4a7c3f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    height: 2.25rem;
+    box-sizing: border-box;
+}
+ 
+.btn-adicionar-item-pedido:hover {
+    background-color: #3a5f2f;
+}
+ 
+/* Tabela de itens */
+.pedido-lista-container {
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    overflow: hidden;
+}
+ 
+.pedido-tabela {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+ 
+.pedido-tabela thead {
+    background-color: #4a7c3f;
+    color: white;
+}
+ 
+.pedido-tabela th {
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+}
+ 
+.pedido-tabela td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #eee;
+    color: #333;
+}
+ 
+.pedido-tabela tbody tr:last-child td {
+    border-bottom: none;
+}
+ 
+.pedido-tabela tbody tr:hover {
+    background-color: #f9f9f9;
+}
+ 
+.pedido-vazio-msg {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    padding: 16px !important;
+}
+ 
+/* Botão remover linha */
+.btn-remover-item-pedido {
+    background: none;
+    border: none;
+    color: #cc0000;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 0 4px;
+    line-height: 1;
+}
+ 
+.btn-remover-item-pedido:hover {
+    color: #ff0000;
+}
+ 
+/* Total */
+.pedido-total {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 2px solid #4a7c3f;
+}
+ 
+.pedido-total-label {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #333;
+}
+ 
+.pedido-total-valor {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #4a7c3f;
+}
+ 
+/* Botão limpar no rodapé */
+.btn-limpar-pedido {
+    padding: 7px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #ff9800;
+    color: white;
+}
+ 
+.btn-limpar-pedido:hover {
+    background-color: #e68900;
+}

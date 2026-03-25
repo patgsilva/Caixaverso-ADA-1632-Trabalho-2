@@ -1,0 +1,191 @@
+/* ===== MODAL VENDAS DO DIA ===== */
+
+#listaVendasModal {
+    width: 960px;
+}
+
+.vendas-body {
+    max-height: 70vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ─── Resumo geral ─────────────────────────────────────── */
+.vendas-resumo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.vendas-resumo-card {
+    background-color: #2e2e2e;
+    border-radius: 8px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.vendas-resumo-label {
+    font-size: 0.78rem;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.vendas-resumo-valor {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* ─── Grid secundário (categoria + ranking) ────────────── */
+.vendas-grid-secundario {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+/* ─── Seções com título ────────────────────────────────── */
+.vendas-secao {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.vendas-secao-titulo {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #2e2e2e;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid #2e2e2e;
+    padding-bottom: 4px;
+    margin: 0;
+}
+
+/* ─── Tabelas ──────────────────────────────────────────── */
+.vendas-tabela {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+}
+
+.vendas-tabela thead {
+    background-color: #2e2e2e;
+    color: white;
+}
+
+.vendas-tabela th {
+    padding: 7px 10px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.vendas-tabela td {
+    padding: 7px 10px;
+    border-bottom: 1px solid #eee;
+    color: #333;
+}
+
+.vendas-tabela tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.vendas-tabela tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+.vendas-vazio-msg {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    padding: 12px !important;
+}
+
+/* Badge de ranking */
+.vendas-rank-badge {
+    display: inline-block;
+    background-color: #2e2e2e;
+    color: white;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.vendas-rank-badge.ouro  { background-color: #c9a800; }
+.vendas-rank-badge.prata { background-color: #888; }
+.vendas-rank-badge.bronze{ background-color: #a0522d; }
+
+/* ─── Lista detalhada de pedidos ───────────────────────── */
+.vendas-lista-pedidos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.vendas-pedido-card {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.vendas-pedido-header {
+    background-color: #f0f0f0;
+    padding: 7px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+}
+
+.vendas-pedido-numero {
+    font-weight: 700;
+    color: #2e2e2e;
+}
+
+.vendas-pedido-horario {
+    color: #666;
+    font-size: 0.82rem;
+}
+
+.vendas-pedido-total-inline {
+    font-weight: 700;
+    color: #2e2e2e;
+}
+
+.vendas-pedido-itens {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+.vendas-pedido-itens td {
+    padding: 5px 12px;
+    border-bottom: 1px solid #f0f0f0;
+    color: #444;
+}
+
+.vendas-pedido-itens tr:last-child td {
+    border-bottom: none;
+}
+
+/* ─── Botão limpar vendas ──────────────────────────────── */
+.btn-limpar-vendas {
+    padding: 7px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #ff0000;
+    color: white;
+}
+
+.btn-limpar-vendas:hover {
+    background-color: #cc0000;
+}
