@@ -11,7 +11,7 @@ export class PratoCardapio {
         this.imagem = imagem;
     }
 
-    _truncarDescricao(descricao) {
+    truncarDescricao(descricao) {
         return descricao.length > PratoCardapio.#LIMITE_DESCRICAO ? descricao.substring(0, PratoCardapio.#LIMITE_DESCRICAO) + "..." : descricao;
     }
 
