@@ -8,7 +8,6 @@ const categorias = {
     "lanches": "Lanches"
 };
 
-// ─── SessionStorage ────────────────────────────────────────────────────────
 export function carregarPedidosDaSession() {
     const salvo = sessionStorage.getItem(STORAGE_KEY_PEDIDOS);
     return salvo ? JSON.parse(salvo) : [];
@@ -18,7 +17,7 @@ function limparPedidosDaSession() {
     sessionStorage.removeItem(STORAGE_KEY_PEDIDOS);
 }
 
-// ─── Utilitários ───────────────────────────────────────────────────────────
+
 function formatarValor(valor) {
     return `R$ ${valor.toFixed(2).replace('.', ',')}`;
 }
@@ -28,7 +27,7 @@ function formatarHorario(iso) {
     return d.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" });
 }
 
-// ─── Renderização ──────────────────────────────────────────────────────────
+
 function renderizarRelatorio() {
     const pedidos = carregarPedidosDaSession();
 
@@ -153,20 +152,20 @@ function renderizarListaPedidos(pedidos) {
     });
 }
 
-// ─── Abrir modal ───────────────────────────────────────────────────────────
+
 document.querySelector("#abrirRelatorio").addEventListener("click", () => {
     renderizarRelatorio();
     modalVendas.showModal();
 });
 
-// ─── Limpar vendas ─────────────────────────────────────────────────────────
+
 document.querySelector("#limparVendas").addEventListener("click", () => {
     if (!confirm("Deseja realmente limpar todas as vendas do dia?")) return;
     limparPedidosDaSession();
     renderizarRelatorio();
 });
 
-// ─── Fechar modal ──────────────────────────────────────────────────────────
+
 function fechar() {
     modalVendas.classList.add("fechar");
     modalVendas.addEventListener("animationend", () => {

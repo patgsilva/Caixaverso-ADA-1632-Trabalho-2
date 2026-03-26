@@ -9,14 +9,14 @@ const pedidoTotal = document.querySelector("#pedidoTotal");
 const STORAGE_KEY_RASCUNHO = "pedido_atual";
 const STORAGE_KEY_PEDIDOS  = "pedidos_do_dia";
 
-// ─── Categorias legíveis ───────────────────────────────────────────────────
+
 const categorias = {
     "bebidas-alcoolicas": "Bebidas Alcoólicas",
     "bebidas-nao-alcoolicas": "Bebidas Não Alcoólicas",
     "lanches": "Lanches"
 };
 
-// ─── Carrega itens do cardápio no select ───────────────────────────────────
+
 function carregarSelectCardapio() {
     const cardapio = new ListaCardapio();
     const pratos = cardapio.buscarCardapioNoLocalStorage();
@@ -53,7 +53,7 @@ function carregarSelectCardapio() {
     });
 }
 
-// ─── SessionStorage — rascunho ─────────────────────────────────────────────
+
 function salvarRascunho(itens) {
     sessionStorage.setItem(STORAGE_KEY_RASCUNHO, JSON.stringify(itens));
 }
@@ -67,7 +67,7 @@ function limparRascunho() {
     sessionStorage.removeItem(STORAGE_KEY_RASCUNHO);
 }
 
-// ─── SessionStorage — pedidos confirmados ──────────────────────────────────
+
 function salvarPedidoConfirmado(itens) {
     const pedidos = carregarPedidosConfirmados();
     const total = itens.reduce((acc, item) => acc + item.quantidade * item.valor, 0);
@@ -84,7 +84,7 @@ function carregarPedidosConfirmados() {
     return salvo ? JSON.parse(salvo) : [];
 }
 
-// ─── Renderiza a tabela ────────────────────────────────────────────────────
+
 function renderizarTabela(itens) {
     tabelaBody.innerHTML = "";
 
@@ -121,7 +121,7 @@ function atualizarTotal(itens) {
     pedidoTotal.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
 }
 
-// ─── Adicionar item ────────────────────────────────────────────────────────
+
 document.querySelector("#adicionarItemPedido").addEventListener("click", () => {
     const opcao = selectItem.options[selectItem.selectedIndex];
 
@@ -158,7 +158,7 @@ document.querySelector("#adicionarItemPedido").addEventListener("click", () => {
     inputQuantidade.value = 1;
 });
 
-// ─── Remover item ──────────────────────────────────────────────────────────
+
 tabelaBody.addEventListener("click", (e) => {
     const btn = e.target.closest(".btn-remover-item-pedido");
     if (!btn) return;
@@ -170,13 +170,13 @@ tabelaBody.addEventListener("click", (e) => {
     renderizarTabela(itens);
 });
 
-// ─── Limpar rascunho ───────────────────────────────────────────────────────
+
 document.querySelector("#limparPedido").addEventListener("click", () => {
     limparRascunho();
     renderizarTabela([]);
 });
 
-// ─── Confirmar pedido ──────────────────────────────────────────────────────
+
 document.querySelector("#confirmarNovoPedido").addEventListener("click", () => {
     const itens = carregarRascunho();
 
@@ -190,14 +190,14 @@ document.querySelector("#confirmarNovoPedido").addEventListener("click", () => {
     fechar();
 });
 
-// ─── Abrir modal ───────────────────────────────────────────────────────────
+
 document.querySelector("#abrirNovoPedido").addEventListener("click", () => {
     carregarSelectCardapio();
     renderizarTabela(carregarRascunho());
     modalPedido.showModal();
 });
 
-// ─── Fechar modal ──────────────────────────────────────────────────────────
+
 function fechar() {
     modalPedido.classList.add("fechar");
     modalPedido.addEventListener("animationend", () => {
